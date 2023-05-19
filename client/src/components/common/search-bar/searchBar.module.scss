@@ -1,0 +1,43 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.wrapper {
+  position: relative;
+  display: flex;
+
+  .input {
+    @include text(12px, 14px);
+    padding-left: 12px;
+    color: $accent-text-dark;
+    width: 310px;
+    height: 32px;
+    border: 1px solid #83BCC3;
+    border-radius: 10px;
+    background-color: $light-gray;
+  }
+
+  .lupe {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 20px;
+  }
+}
+
+.input:hover, input:focus {
+  box-shadow: 0 0 5px 0.3rem rgba(131, 188, 195, 0.25);
+}
+
+@media only screen and (max-width: $md) {
+  .input {
+    width: 280px !important;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .input {
+    width: 160px !important;
+  }
+}
+
+
