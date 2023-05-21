@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'backend_api',
 ]
 
 MIDDLEWARE = [
@@ -47,9 +50,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'recomendeation_server_main.urls'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
+
+ORS_ORIGIN_ALLOW_ALL = True
+
+ROOT_URLCONF = 'recomendation_server_main.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'recomendeation_server_main.wsgi.application'
+WSGI_APPLICATION = 'recomendation_server_main.wsgi.application'
 
 
 # Database
@@ -75,8 +87,12 @@ WSGI_APPLICATION = 'recomendeation_server_main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cbb662f428b746f392acd05b12fbc329in03',
+        'USER': 'Victor',
+        'PASSWORD': 'h5k6rTGBVCXZ',
+        'HOST': '10.0.0.229',
+        'PORT': '5432'
     }
 }
 
