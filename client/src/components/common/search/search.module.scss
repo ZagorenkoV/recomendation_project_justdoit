@@ -1,0 +1,17 @@
+.SearchBar {
+  display: block;
+  margin: 0 auto;
+  
+  .search {
+	display: flex;
+  }
+  
+  .input {
+	width: 600px;
+  }
+  
+  .searchBtn {
+	margin: 0 15px;
+  }
+  
+}
