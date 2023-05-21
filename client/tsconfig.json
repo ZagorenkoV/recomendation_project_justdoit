@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "noImplicitAny": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,7 +21,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "include": [
-    "src"
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ]
 }

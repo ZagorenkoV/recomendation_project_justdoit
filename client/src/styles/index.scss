@@ -1,34 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import "variables";
-
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 A {
   text-decoration: none; /* Убирает подчеркивание для ссылок */
 }
 
-/* Text Input placeholder */
-
-::placeholder {
-  color: $accent-text-light;
-}
-
-/* Search input cancel button */
-
-::-webkit-search-cancel-button {
-  position: relative;
-  right: 2px;
-  background-size: contain;
-  -webkit-appearance: none;
-  height: 15px;
-  width: 15px;
-  cursor: pointer;
-}
-
-/* Scroll bar styles */
+// Стили для скролла на странице
 
 ::-webkit-scrollbar {
   width: 9px;
@@ -38,9 +18,9 @@ A {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $accent-main;
+  background: var(--primary-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $accent-text-dark;
+  background: var(--primary-color);
 }

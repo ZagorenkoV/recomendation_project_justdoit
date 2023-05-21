@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import styles from "./layout.module.scss"
+import cls from "./layout.module.scss"
 
 interface LayoutProps {
     children?: React.ReactNode;
@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({children}) => {
     return (
         <>
-            <main className={styles.main}>
+            <main className={cls.main}>
                 {children}
             </main>
         </>

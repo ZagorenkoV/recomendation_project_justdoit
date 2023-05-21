@@ -18,7 +18,7 @@
   margin: 8px;
   border-radius: 50%;
   border: 6px solid;
-  border-color: $accent-main transparent $accent-main transparent;
+  border-color: var(--primary-color) transparent var(--primary-color) transparent;
   animation: spinner 1.2s linear infinite;
 }
 

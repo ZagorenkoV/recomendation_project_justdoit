@@ -1,17 +1,31 @@
-/* Colors */
-$accent-main: #83BCC3;
-$accent-secondary: #CCE6E8;
-$accent-text-dark: #2B2B2B;
-$accent-text-light: #315B60;
-$dark-gray: #C4C4C4;
-$gray: #DCDCDC;
-$light-gray: #F7F7F7;
-$white: #FFFFFF;
-
-/* Screen sizes */
-$xs: 320px;
-$sm: 480px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
-
+:root {
+  // Шрифты
+  --font-family-main: Golos Text, "Times New Roman", serif;
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  
+  // z - Индексы
+  --modal-z-index: 10;
+  
+  // Цвета
+  --bg-color: #e8e8ea;
+  --primary-color: #24AC5D;
+  --secondary-color: #3A3A3A;
+  --overlay-color: rgba(0 0 0 / 60%);
+  --red-light: #ff00;
+  --red-dark: #ce0505;
+  
+  // Размеры экрана
+  --screen-xs: 320px;
+  --screen-sm: 480px;
+  --screen-md: 768px;
+  --screen-lg: 992px;
+  --screen-xl: 1200px;
+}
