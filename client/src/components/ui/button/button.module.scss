@@ -1,0 +1,30 @@
+.Button {
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+
+.primary {
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  outline: none;
+}
+.outline {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: none;
+}
+
+.size_m {
+  font: var(--font-m);
+}
+
+.size_l {
+  font: var(--font-l);
+}
+
+.disabled {
+  opacity: 0.5;
+}
