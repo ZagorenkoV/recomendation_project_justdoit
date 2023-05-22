@@ -1,0 +1,67 @@
+.CardModal {
+  
+  .modal-content {
+	display: flex;
+	margin: 20px;
+	
+	.main {
+	  width: 75%;
+	  margin-right: 40px;
+	}
+	
+	.additional {
+	  width: 25%;
+	  margin-top: 50px;
+	  
+	}
+  }
+  
+  .category {
+  }
+  
+  .card-title {
+	margin-top: 10px;
+  }
+  
+  .card-tags {
+	display: flex;
+	margin: 20px 0;
+  }
+  
+  .card-description {
+	margin-top: 10px;
+  }
+  
+  .card-address {
+	margin-top: 20px;
+  }
+  
+  .card-group {
+	padding: 20px;
+	margin-top: 20px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	
+	.card-group-title {
+	  
+	}
+	
+	.card-group-time {
+	  margin-top: 10px;
+	  color: gray;
+	}
+  }
+  
+  .actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	margin-bottom: 20px;
+  }
+  
+  .submitBtn {
+	width: 500px;
+  }
+  
+}
+

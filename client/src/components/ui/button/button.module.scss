@@ -4,6 +4,10 @@
   padding: 10px 25px;
   border-radius: 10px;
   height: 50px;
+  
+  &:hover {
+	background: #70d199;
+  }
 }
 
 .primary {
@@ -16,6 +20,11 @@
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
+  
+  &:hover {
+	color: white;
+	background: var(--primary-color);
+  }
 }
 
 .size_m {

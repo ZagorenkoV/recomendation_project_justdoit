@@ -14,7 +14,7 @@ const Popular: FC = ({ className }: PopularProps) => {
 		{
 			category: 'Категория 1',
 			title: 'Заголовок 1',
-			description: 'Описание 1 Описание 1 Описание 1Описание 1Описание 1 Описание 1'
+			description: 'Описание 1 Описание 1 Описание 1Описание 1Описание 1 Описание 1 '
 		},
 		{
 			category: 'Категория 2',
@@ -30,7 +30,7 @@ const Popular: FC = ({ className }: PopularProps) => {
 			category: 'Категория 4',
 			title: 'Заголовок 4',
 			description: 'Описание 4 Описание 4 Описание 4Описание 4Описание 4 Описание 4'
-		}
+		},
 		]
 
 	return (
