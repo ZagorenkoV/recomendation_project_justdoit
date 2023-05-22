@@ -1,0 +1,33 @@
+.SurveyModal {
+  
+  .modal-content {
+	margin: 20px;
+  
+	.survey-title {
+	  margin-top: 10px;
+	}
+  
+	.answers-section {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	  margin: 20px 0;
+	}
+	
+	.answerBtn {
+	  margin-top: 20px;
+	}
+  }
+  
+  .actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	margin-bottom: 20px;
+  }
+  
+  .submitBtn {
+	width: 200px;
+  }
+}
+

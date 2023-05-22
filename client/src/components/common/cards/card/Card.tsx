@@ -14,14 +14,14 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ className, category, title, description }: CardProps) => {
 
-	const [isAuthModal, setIsAuthModal] = useState(false);
+	const [isOpenModal, setIsOpenModal] = useState(false);
 
 	const onCloseModal = useCallback(() => {
-		setIsAuthModal(false);
+		setIsOpenModal(false);
 	}, []);
 
 	const onShowModal = useCallback(() => {
-		setIsAuthModal(true);
+		setIsOpenModal(true);
 	}, []);
 
 	return (
@@ -58,7 +58,7 @@ const Card: FC<CardProps> = ({ className, category, title, description }: CardPr
 				category={category}
 				title={title}
 				description={description}
-				isOpen={isAuthModal} 
+				isOpen={isOpenModal} 
 				onClose={onCloseModal}
 			/>
 		</div>
