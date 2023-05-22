@@ -1,0 +1,27 @@
+.Tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F0F0;
+  border-radius: 5px;
+  width: 150px;
+  margin-right: 20px;
+  padding: 2px;
+}
+
+.default {
+  
+  .text {
+	font: var(--font-s);
+
+	color: var(--secondary-color);
+  }
+}
+
+.online {
+  
+  .text {
+	font: var(--font-s);
+	color: var(--primary-color);
+  }
+}
