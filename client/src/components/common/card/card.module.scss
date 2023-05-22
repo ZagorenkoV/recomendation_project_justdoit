@@ -1,0 +1,33 @@
+.Card {
+  position: relative;
+  min-height: 350px;
+  max-width: 350px;
+  border: 1px lightgray solid;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  
+  .category {
+  }
+  
+  .card-title {
+	margin-top: 10px;
+  }
+  
+  .card-description {
+	margin-top: 10px;
+  }
+  
+  .actions {
+	position: absolute;
+	left: 20px;
+	bottom: 25px;
+	display: flex;
+	justify-content: space-around;
+  }
+  
+  .submitBtn {
+	margin-right: 20px;
+  }
+  
+}

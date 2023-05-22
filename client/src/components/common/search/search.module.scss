@@ -1,9 +1,14 @@
-.SearchBar {
+.Search {
   display: block;
   margin: 0 auto;
+  width: 50%;
   
-  .search {
+  .search-bar {
 	display: flex;
+  }
+  
+  .content {
+	
   }
   
   .input {
@@ -13,5 +18,5 @@
   .searchBtn {
 	margin: 0 15px;
   }
-  
 }
+
