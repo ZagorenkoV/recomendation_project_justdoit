@@ -1,12 +1,30 @@
-.title {
-  font: var(--font-xl);
-  font-weight: bold;
-  color: var(--secondary-color);
+.primary {
+  .title {
+	font: var(--font-xl);
+	font-weight: bold;
+	color: var(--secondary-color);
+	margin-top: 50px;
+	margin-bottom: 20px;
+  }
+  
+  .text {
+	font: var(--font-m);
+	color: var(--secondary-color);
+  }
 }
 
-.text {
-  font: var(--font-m);
-  color: var(--secondary-color);
+.titles {  
+  .text {
+	font: var(--font-l);
+	font-weight: 500;
+	color: var(--secondary-color);
+  }
+}
+
+.secondary {
+  .text {
+	color: #8D8D8D;
+  }
 }
 
 .error {
@@ -19,8 +37,6 @@
   }
 }
 
-.secondary {
-  .title, text {
-	color: lightgray;
-  }
-}
+
+
+
