@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import cls from "./popular.module.scss";
 import {Text} from "../../ui/text/Text";
 import {classNames} from "../../../lib/classNames";
-import Card from "../card/Card";
+import Cards from "../../common/cards/Cards";
 
 interface PopularProps {
 	className?: string;
@@ -10,7 +10,7 @@ interface PopularProps {
 
 const Popular: FC = ({ className }: PopularProps) => {
 	
-	const mockData = [
+	const popularEvents = [
 		{
 			category: 'Категория 1',
 			title: 'Заголовок 1',
@@ -36,12 +36,7 @@ const Popular: FC = ({ className }: PopularProps) => {
 	return (
 		<div className={classNames(cls.Popular, {}, [className])}>
 			<Text title={'Популярные занятия'}/>
-			<div className={cls['card-row']}>
-				{mockData.map((card, i) => (
-					<Card key={i} category={card.category} title={card.title} description={card.description}/>
-				))}
-			</div>
-
+			<Cards data={popularEvents}/>
 		</div>
 	);
 };
