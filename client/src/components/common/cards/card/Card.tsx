@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {classNames} from "../../../lib/classNames";
+import {classNames} from "../../../../lib/classNames";
 import cls from "./card.module.scss"
-import {Text, TextTheme} from "../../ui/text/Text";
-import {Button, ButtonTheme} from "../../ui/button/Button";
+import {Text, TextTheme} from "../../../ui/text/Text";
+import {Button, ButtonTheme} from "../../../ui/button/Button";
 
 interface CardProps {
 	className?: string;

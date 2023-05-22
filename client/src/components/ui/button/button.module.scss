@@ -3,6 +3,7 @@
   color: var(--primary-color);
   padding: 10px 25px;
   border-radius: 10px;
+  height: 50px;
 }
 
 .primary {
@@ -23,6 +24,8 @@
 
 .size_l {
   font: var(--font-l);
+  font-weight: 500;
+  height: 60px;
 }
 
 .disabled {
