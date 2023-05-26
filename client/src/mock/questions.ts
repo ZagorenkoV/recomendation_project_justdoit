@@ -1,45 +1,40 @@
 interface IQuestions {
-	questionText: string
 	answerOptions: IAnswerOptions[]
 }
 
-interface IAnswerOptions {
+export interface IAnswerOptions {
 	answerText: string,
-	isChoose: boolean
+	value: string
 }
 
-export const questions: IQuestions[] = [
-	{
-		questionText: "Всегда ли Вы успешно дозванивались до службы технической поддержки?",
-		answerOptions: [
-			{answerText: "Да", isChoose: false,},
-			{answerText: "Не всегда удается дозвониться с первого раза", isChoose: false,},
-			{answerText: "Ни разу не дозвонился(лась)", isChoose: false,}
-		]
-	},
-	{
-		questionText: "Какие средства обращения в службу технической поддержки Вам подходят больше всего?",
-		answerOptions: [
-			{answerText: "Телефонная связь", isChoose: false,},
-			{answerText: "Электронная почта", isChoose: false,},
-			{answerText: "Личный кабинет пользователя на страничке \"Техподдержка КОНСИСТ-ОС\"", isChoose: false,},
-			{answerText: "Электронная форма подачи запроса, расположенная в локальных разделах сайта ЛАЭС", isChoose: false,}
-		]
-	},
-	{
-		questionText: "Удовлетворены ли Вы работой сотрудников КОНСИСТ-ОС?",
-		answerOptions: [
-			{answerText: "Полностью удовлетворен(а)", isChoose: false,},
-			{answerText: "Иногда возникают замечания к работе сотрудника КОНСИСТ-ОС", isChoose: false,},
-			{answerText: "Мне приходилось жаловаться руководству на работу сотрудника КОНСИСТ-ОС", isChoose: false,}
-		]
-	},
-	{
-		questionText: "Удовлетворены ли Вы корректностью общения и внешним видом сотрудников КОНСИСТ-ОС?",
-		answerOptions: [
-			{answerText: "Да, сотрудники КОНСИСТ-ОС вежливы и соответствуют принципам корпоративной этики", isChoose: false,},
-			{answerText: "Наличие униформы, выделяющее сотрудников КОНСИСТ-ОС, было бы уместным", isChoose: false,},
-			{answerText: "Приходивший ко мне сотрудник КОНСИСТ-ОС выглядел неопрятным или был недостаточно вежлив", isChoose: false,}
-		]
-	},
-];
+export const dataStage2: IQuestions = {
+	answerOptions: [
+		{answerText: "Ответ №1 на шаге 2", value: "2_1"},
+		{answerText: "Ответ №2 на шаге 2", value: "2_2"},
+		{answerText: "Ответ №3 на шаге 2", value: "2_3"}
+	]
+}
+
+export const dataStage3: IQuestions = {
+	answerOptions: [
+		{answerText: "Ответ №1 на шаге 3", value: "3_1"},
+		{answerText: "Ответ №2 на шаге 3", value: "3_2"},
+		{answerText: "Ответ №3 на шаге 3", value: "3_3"}
+	]
+}
+
+export const dataStage4: IQuestions = {
+	answerOptions: [
+		{answerText: "Ответ №1 на шаге 4", value: "4_1"},
+		{answerText: "Ответ №2 на шаге 4", value: "4_2"},
+		{answerText: "Ответ №3 на шаге 4", value: "4_3"}
+	]
+}
+
+export const dataStage5: IQuestions = {
+	answerOptions: [
+		{answerText: "Ответ №1 на шаге 5", value: "5_1"},
+		{answerText: "Ответ №2 на шаге 5", value: "5_2"},
+		{answerText: "Ответ №3 на шаге 5", value: "5_3"}
+	]
+}

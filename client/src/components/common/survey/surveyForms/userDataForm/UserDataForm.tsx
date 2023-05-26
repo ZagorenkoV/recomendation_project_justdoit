@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import cls from "../../surveyModal/surveyModal.module.scss";
 import {Text, TextTheme} from "../../../../ui/text/Text";
 import {Input} from "../../../../ui/input/Input";
-import {Button, ButtonTheme} from "../../../../ui/button/Button";
 import {appContext} from "../../../../../context/context";
 
 export const UserDataForm = () => {
@@ -35,7 +34,6 @@ export const UserDataForm = () => {
 			birthDate: value
 		})
 	}
-
 
 	return (
 		<>
