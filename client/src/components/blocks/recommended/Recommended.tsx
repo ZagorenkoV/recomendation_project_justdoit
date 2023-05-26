@@ -11,7 +11,7 @@ interface PopularProps {
 	className?: string;
 }
 
-const Recommended: FC = ({ className }: PopularProps) => {
+export const Recommended: FC = ({className}: PopularProps) => {
 
 	const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -28,17 +28,22 @@ const Recommended: FC = ({ className }: PopularProps) => {
 			<div>
 				<Text title={'Подобрать индивидуальные занятия'}/>
 				<Text text={'Пройдите наш опрос и узнайте, какие направления подходят именно Вам'}/>
-				<Button 
-					theme={ButtonTheme.PRIMARY} 
-					size={ButtonSize.L} 
+				<Button
+					theme={ButtonTheme.PRIMARY}
+					size={ButtonSize.L}
 					className={cls['recommend-btn']}
 					onClick={onShowModal}
 				>
 					Подобрать занятия
 				</Button>
 			</div>
-			<Text title={'Рекомендованные занятия'}/>
-			<Cards data={recommendedEvents}/>
+
+			{recommendedEvents.length > 0 &&
+				<>
+					<Text title={'Рекомендованные занятия'}/>
+					<Cards data={recommendedEvents}/>
+				</>
+			}
 			<SurveyModal
 				isOpen={isOpenModal}
 				onClose={onCloseModal}
@@ -46,5 +51,3 @@ const Recommended: FC = ({ className }: PopularProps) => {
 		</div>
 	);
 };
-
-export default Recommended;

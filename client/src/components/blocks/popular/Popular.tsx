@@ -9,7 +9,7 @@ interface PopularProps {
 	className?: string;
 }
 
-const Popular: FC = ({ className }: PopularProps) => {
+export const Popular: FC = ({className}: PopularProps) => {
 
 	return (
 		<div className={classNames(cls.Popular, {}, [className])}>
@@ -18,5 +18,3 @@ const Popular: FC = ({ className }: PopularProps) => {
 		</div>
 	);
 };
-
-export default Popular;

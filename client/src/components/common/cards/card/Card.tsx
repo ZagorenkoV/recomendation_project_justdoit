@@ -12,7 +12,7 @@ interface CardProps {
 	description: string;
 }
 
-const Card: FC<CardProps> = ({ className, category, title, description }: CardProps) => {
+export const Card: FC<CardProps> = ({className, category, title, description}: CardProps) => {
 
 	const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -26,43 +26,41 @@ const Card: FC<CardProps> = ({ className, category, title, description }: CardPr
 
 	return (
 		<div className={classNames(cls.Card, {}, [className])}>
-			<Text 
-				theme={TextTheme.SECONDARY} 
-				text={category} 
+			<Text
+				theme={TextTheme.SECONDARY}
+				text={category}
 				className={cls.category}
 			/>
-			<Text 
-				theme={TextTheme.TITLES} 
-				text={title} 
+			<Text
+				theme={TextTheme.TITLES}
+				text={title}
 				className={cls['card-title']}
 			/>
-			<Text 
-				text={description} 
+			<Text
+				text={description}
 				className={cls['card-description']}
 			/>
 			<div className={cls.actions}>
-				<Button 
-					theme={ButtonTheme.PRIMARY} 
+				<Button
+					theme={ButtonTheme.PRIMARY}
 					className={cls.submitBtn}
 				>
 					Записаться
 				</Button>
-				<Button 
-					theme={ButtonTheme.OUTLINE} 
+				<Button
+					theme={ButtonTheme.OUTLINE}
 					onClick={onShowModal}
 				>
 					Подробнее
 				</Button>
 			</div>
-			<CardModal 
+			<CardModal
 				category={category}
 				title={title}
 				description={description}
-				isOpen={isOpenModal} 
+				isOpen={isOpenModal}
 				onClose={onCloseModal}
 			/>
 		</div>
 	);
 };
-
-export default Card;

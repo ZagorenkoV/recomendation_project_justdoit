@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import cls from "./cards.module.scss";
-import Card from "./card/Card";
 import {classNames} from "../../../lib/classNames";
+import {Card} from "./card/Card";
 
 interface DataProps {
 	category: string,
@@ -14,7 +14,7 @@ interface CardsProps {
 	data: DataProps[];
 }
 
-const Cards: FC<CardsProps> = ({ className, data }: CardsProps) => {
+const Cards: FC<CardsProps> = ({className, data}: CardsProps) => {
 
 	return (
 		<div className={classNames(cls.Cards, {}, [className])}>
