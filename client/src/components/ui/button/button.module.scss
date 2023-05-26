@@ -4,9 +4,15 @@
   padding: 10px 25px;
   border-radius: 10px;
   height: 50px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
   
   &:hover {
 	background: #70d199;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
   }
 }
 
@@ -16,6 +22,7 @@
   color: white;
   outline: none;
 }
+
 .outline {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);

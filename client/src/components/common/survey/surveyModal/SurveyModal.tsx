@@ -2,11 +2,12 @@ import {classNames} from "../../../../lib/classNames";
 import {Modal} from "../../../ui/modal/Modal";
 import cls from "./surveyModal.module.scss";
 import {Button, ButtonTheme} from "../../../ui/button/Button";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import {Text, TextTheme} from "../../../ui/text/Text";
-import {questions} from "../../../../mock/questions";
 import {appContext} from "../../../../context/context";
 import {UserDataForm} from "../surveyForms/userDataForm/UserDataForm";
+import {CustomQuestionForm} from "../surveyForms/customQuestionForm/CustomQuestionForm";
+import {dataStage2, dataStage3, dataStage4, dataStage5} from "../../../../mock/questions";
 
 interface SurveyModalProps {
 	className?: string;
@@ -15,42 +16,29 @@ interface SurveyModalProps {
 }
 
 export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
+	const {activeStage, userData, setActiveStage, resultStage2, resultStage3} = useContext(appContext)
+	const lastStage = 3
 
-	const {activeStage, userData, setActiveStage} = useContext(appContext)
-	const [currentQuestion, setCurrentQuestion] = useState<number>(0)
-	const [complete, setComplete] = useState<boolean>(false)
-	const [result, setResult] = useState<string[]>([])
-
-
-	useEffect(() => {
-		if (complete) {
-			onClose()
+	const handleNextStage = () => {
+		if (activeStage === 1) {
+			console.log(`Отправка данных на бэк: ${[JSON.stringify(userData)]}`)
 		}
-	}, [complete])
+
+		if (activeStage < lastStage) {
+			setActiveStage(activeStage + 1)
+		}
+
+		if (activeStage === lastStage) {
+			onClose();
+		}
+	}
+
+	const handleBackStage = () => {
+		setActiveStage(activeStage - 1)
+	}
 
 	const onSubmit = () => {
-		console.log(result)
-	}
-
-	const handleAnswerOption = (answer: string) => {
-		setResult([...result, answer])
-		const nextQuestion = currentQuestion + 1
-
-		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion)
-			setActiveStage(activeStage + 1)
-			console.log(answer)
-		} else {
-			setComplete(true)
-			onSubmit()
-		}
-	}
-
-	const handleChangeStage = () => {
-		if (activeStage === 1) {
-			console.log(`POST запрос на сервер с данными: ${[userData.firstName, userData.middleName, userData.lastName, userData.birthDate]}`)
-		}
-		setActiveStage(activeStage + 1)
+		console.log(`Отправка данных на бэк: ${resultStage2}, ${resultStage3}`)
 	}
 
 	return (
@@ -63,35 +51,41 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 			<div className={cls['modal-content']}>
 				<Text
 					theme={TextTheme.SECONDARY}
-					text={`Шаг ${activeStage} из 5`}
+					text={`Шаг ${activeStage} из ${lastStage}`}
 					className={cls.category}
 				/>
 				{activeStage === 1 &&
 					<UserDataForm/>
 				}
 				{activeStage === 2 &&
-					<div className={cls["answers-section"]}>
-						{questions[currentQuestion].answerOptions.map((item, index) => (
-							<Button
-								theme={ButtonTheme.OUTLINE}
-								className={cls.answerBtn}
-								key={index}
-								onClick={() => handleAnswerOption(item.answerText)}
-							>
-								{item.answerText}
-							</Button>
-						))
-						}
-					</div>
+					<CustomQuestionForm title={'Название вопроса на шаге 2'} data={dataStage2}/>
+				}
+				{(activeStage === 3 && resultStage2 === '2_1') &&
+					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage3}/>
+				}
+				{(activeStage === 3 && resultStage2 === '2_2') &&
+					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage4}/>
+				}
+				{(activeStage === 3 && resultStage2 === '2_3') &&
+					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage5}/>
 				}
 				<div className={cls.actions}>
 					<Button
 						theme={ButtonTheme.PRIMARY}
 						className={cls.submitBtn}
-						onClick={handleChangeStage}
+						onClick={activeStage === lastStage ? onSubmit : handleNextStage}
 					>
-						Далее
+						{activeStage === lastStage ? 'Закончить опрос' : 'Далее'}
 					</Button>
+					{activeStage !== 1 &&
+						<Button
+							theme={ButtonTheme.OUTLINE}
+							className={cls.submitBtn}
+							onClick={handleBackStage}
+						>
+							Назад
+						</Button>
+					}
 				</div>
 			</div>
 		</Modal>

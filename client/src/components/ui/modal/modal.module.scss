@@ -8,6 +8,9 @@
   pointer-events: none;
   z-index: -1;
   color: var(--primary-color);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .overlay {
@@ -40,6 +43,5 @@
 
 .isClosing {
   .content {
-	transform: scale(0.2);
   }
 }
