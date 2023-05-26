@@ -2,11 +2,15 @@
   
   .modal-content {
 	margin: 20px;
-  
+	
 	.survey-title {
 	  margin-top: 10px;
 	}
-  
+	
+	.survey-description {
+	  margin-top: 10px;
+	}
+	
 	.answers-section {
 	  display: flex;
 	  flex-direction: column;
@@ -17,17 +21,32 @@
 	.answerBtn {
 	  margin-top: 20px;
 	}
+	
+	.inputs-fio {
+	  margin-top: 20px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	}
+	
+	.input {
+	  margin: 10px 10px 10px 0;
+	  width: 350px;
+	}
+	
+	.actions {
+	  display: flex;
+	  justify-content: center;
+	  margin-top: 50px;
+	  margin-bottom: 20px;
+	}
+	
+	.submitBtn {
+	  width: 200px;
+	}
   }
   
-  .actions {
-	display: flex;
-	justify-content: center;
-	margin-top: 100px;
-	margin-bottom: 20px;
-  }
   
-  .submitBtn {
-	width: 200px;
-  }
 }
 
