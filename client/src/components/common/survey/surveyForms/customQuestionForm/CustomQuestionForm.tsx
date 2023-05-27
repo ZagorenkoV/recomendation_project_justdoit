@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext} from 'react';
 import cls from "../../surveyModal/surveyModal.module.scss";
 import {Text, TextTheme} from "../../../../ui/text/Text";
 import {Button, ButtonTheme} from "../../../../ui/button/Button";
@@ -6,35 +6,67 @@ import {appContext} from "../../../../../context/context";
 import {IAnswerOptions} from "../../../../../mock/questions";
 
 interface CustomQuestionFormProps {
-	title?: string;
 	description?: string;
 	data?: any;
 }
 
-export const CustomQuestionForm = ({title, description, data}: CustomQuestionFormProps) => {
+export const CustomQuestionForm = ({description, data}: CustomQuestionFormProps) => {
 
-	const {activeStage, resultStage2, setResultStage2, resultStage3, setResultStage3} = useContext(appContext)
-	const [filter, setFilter] = useState('')
+	const {
+		filter,
+		setFilter,
+		activeStage,
+		resultStage2,
+		resultStage2_2,
+		resultStage2_3,
+		setResultStage2,
+		setResultStage2_1,
+		setResultStage2_2,
+		setResultStage2_2_2,
+		setResultStage2_3,
+		setResultStage2_3_1,
+		setResultStage2_4,
+	} = useContext(appContext)
 
-	const onFilterSelect = (filter: string) => {
+
+	const onFilterSelect = useCallback((filter: string) => {
 		setFilter(filter);
-	}
-
-	useEffect(() => {
-		console.log(resultStage2)
-	}, [resultStage2])
-
-	useEffect(() => {
-		console.log(resultStage3)
-	}, [resultStage3])
-
-	useEffect(() => {
 		if (activeStage === 2 && filter !== '') {
 			setResultStage2(filter)
 		}
-		if (activeStage === 3 && filter !== '') {
-			setResultStage3(filter)
+		if (activeStage === 3 && resultStage2 === '2_1' && filter !== '') {
+			setResultStage2_1(filter)
+			setResultStage2_2('')
+			setResultStage2_3('')
+			setResultStage2_4('')
 		}
+		if (activeStage === 3 && resultStage2 === '2_2' && filter !== '') {
+			setResultStage2_2(filter)
+			setResultStage2_1('')
+			setResultStage2_3('')
+			setResultStage2_4('')
+		}
+		if (activeStage === 3 && resultStage2 === '2_3' && filter !== '') {
+			setResultStage2_3(filter)
+			setResultStage2_1('')
+			setResultStage2_2('')
+			setResultStage2_4('')
+		}
+		if (activeStage === 3 && resultStage2 === '2_4' && filter !== '') {
+			setResultStage2_4(filter)
+			setResultStage2_1('')
+			setResultStage2_2('')
+			setResultStage2_3('')
+		}
+		if (activeStage === 4 && resultStage2_2 === '2_2_2' && filter !== '') {
+			setResultStage2_2_2(filter)
+			setResultStage2_3_1('')
+		}
+		if (activeStage === 4 && resultStage2_3 === '2_3_1' && filter !== '') {
+			setResultStage2_3_1(filter)
+			setResultStage2_2_2('')
+		}
+
 	}, [filter])
 
 	const answers = data.answerOptions.map((item: IAnswerOptions, index: number) => {
@@ -55,7 +87,7 @@ export const CustomQuestionForm = ({title, description, data}: CustomQuestionFor
 		<>
 			<Text
 				theme={TextTheme.TITLES}
-				text={title}
+				text={'Выберите направление активности'}
 				className={cls['survey-title']}
 			/>
 			<Text

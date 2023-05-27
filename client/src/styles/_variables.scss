@@ -15,7 +15,8 @@
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
   
   // z - Индексы
-  --modal-z-index: 10;
+  --modal-z-index: 1000;
+  --overlay-z-index: 100;
   
   // Цвета
   --bg-color: #e8e8ea;
