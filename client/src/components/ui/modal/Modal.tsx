@@ -1,4 +1,4 @@
-import { classNames } from '../../../lib/classNames';
+import {classNames} from '../../../lib/classNames';
 import React, {
 	ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -13,7 +13,7 @@ interface ModalProps {
 	lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 0;
 
 export const Modal = (props: ModalProps) => {
 	const {

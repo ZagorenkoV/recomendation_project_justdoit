@@ -7,7 +7,28 @@ import {Text, TextTheme} from "../../../ui/text/Text";
 import {appContext} from "../../../../context/context";
 import {UserDataForm} from "../surveyForms/userDataForm/UserDataForm";
 import {CustomQuestionForm} from "../surveyForms/customQuestionForm/CustomQuestionForm";
-import {dataStage2, dataStage3, dataStage4, dataStage5} from "../../../../mock/questions";
+import {
+	dataStage2,
+	dataStage2_1,
+	dataStage2_1_1,
+	dataStage2_1_2,
+	dataStage2_1_3,
+	dataStage2_1_4,
+	dataStage2_2,
+	dataStage2_2_1,
+	dataStage2_2_2, dataStage2_2_2_1, dataStage2_2_2_2, dataStage2_2_2_3, dataStage2_2_2_4, dataStage2_2_2_5,
+	dataStage2_2_3,
+	dataStage2_2_4,
+	dataStage2_2_5,
+	dataStage2_3,
+	dataStage2_3_1, dataStage2_3_1_1, dataStage2_3_1_2, dataStage2_3_1_3, dataStage2_3_1_4,
+	dataStage2_3_2,
+	dataStage2_3_3,
+	dataStage2_3_4,
+	dataStage2_4,
+	dataStage2_4_1,
+	dataStage2_4_2, dataStage2_4_3
+} from "../../../../mock/questions";
 
 interface SurveyModalProps {
 	className?: string;
@@ -16,20 +37,29 @@ interface SurveyModalProps {
 }
 
 export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
-	const {activeStage, userData, setActiveStage, resultStage2, resultStage3} = useContext(appContext)
-	const lastStage = 3
+	const {
+		filter,
+		activeStage,
+		lastStage,
+		userData,
+		setActiveStage,
+		resultStage2,
+		resultStage2_1,
+		resultStage2_2,
+		resultStage2_2_2,
+		resultStage2_3,
+		resultStage2_3_1,
+		resultStage2_4,
+	} = useContext(appContext)
+
 
 	const handleNextStage = () => {
-		if (activeStage === 1) {
+		if (activeStage === 1 && userData.birthDate !== '') {
 			console.log(`Отправка данных на бэк: ${[JSON.stringify(userData)]}`)
 		}
 
 		if (activeStage < lastStage) {
 			setActiveStage(activeStage + 1)
-		}
-
-		if (activeStage === lastStage) {
-			onClose();
 		}
 	}
 
@@ -38,7 +68,11 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 	}
 
 	const onSubmit = () => {
-		console.log(`Отправка данных на бэк: ${resultStage2}, ${resultStage3}`)
+		const finalResult = {
+			result: filter
+		}
+		console.log(`Отправка данных на бэк: ${JSON.stringify(finalResult)}`)
+		onClose();
 	}
 
 	return (
@@ -46,34 +80,112 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 			className={classNames(cls.SurveyModal, {}, [className])}
 			isOpen={isOpen}
 			onClose={onClose}
-			lazy
 		>
 			<div className={cls['modal-content']}>
 				<Text
 					theme={TextTheme.SECONDARY}
-					text={`Шаг ${activeStage} из ${lastStage}`}
+					text={`Шаг ${activeStage}`}
 					className={cls.category}
 				/>
 				{activeStage === 1 &&
 					<UserDataForm/>
 				}
 				{activeStage === 2 &&
-					<CustomQuestionForm title={'Название вопроса на шаге 2'} data={dataStage2}/>
+					<CustomQuestionForm data={dataStage2}/>
 				}
-				{(activeStage === 3 && resultStage2 === '2_1') &&
-					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage3}/>
+				{activeStage === 3 && resultStage2 === '2_1' &&
+					<CustomQuestionForm data={dataStage2_1}/>
 				}
-				{(activeStage === 3 && resultStage2 === '2_2') &&
-					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage4}/>
+				{activeStage === 4 && resultStage2_1 === '2_1_1' &&
+					<CustomQuestionForm data={dataStage2_1_1}/>
 				}
-				{(activeStage === 3 && resultStage2 === '2_3') &&
-					<CustomQuestionForm title={'Название вопроса на шаге 3'} data={dataStage5}/>
+				{activeStage === 4 && resultStage2_1 === '2_1_2' &&
+					<CustomQuestionForm data={dataStage2_1_2}/>
+				}
+				{activeStage === 4 && resultStage2_1 === '2_1_3' &&
+					<CustomQuestionForm data={dataStage2_1_3}/>
+				}
+				{activeStage === 4 && resultStage2_1 === '2_1_4' &&
+					<CustomQuestionForm data={dataStage2_1_4}/>
+				}
+				{activeStage === 3 && resultStage2 === '2_2' &&
+					<CustomQuestionForm data={dataStage2_2}/>
+				}
+				{activeStage === 4 && resultStage2_2 === '2_2_1' &&
+					<CustomQuestionForm data={dataStage2_2_1}/>
+				}
+				{activeStage === 4 && resultStage2_2 === '2_2_2' &&
+					<CustomQuestionForm data={dataStage2_2_2}/>
+				}
+				{activeStage === 4 && resultStage2_2 === '2_2_3' &&
+					<CustomQuestionForm data={dataStage2_2_3}/>
+				}
+				{activeStage === 4 && resultStage2_2 === '2_2_4' &&
+					<CustomQuestionForm data={dataStage2_2_4}/>
+				}
+				{activeStage === 4 && resultStage2_2 === '2_2_5' &&
+					<CustomQuestionForm data={dataStage2_2_5}/>
+				}
+				{activeStage === 5 && resultStage2_2_2 === '2_2_2_1' &&
+					<CustomQuestionForm data={dataStage2_2_2_1}/>
+				}
+				{activeStage === 5 && resultStage2_2_2 === '2_2_2_2' &&
+					<CustomQuestionForm data={dataStage2_2_2_2}/>
+				}
+				{activeStage === 5 && resultStage2_2_2 === '2_2_2_3' &&
+					<CustomQuestionForm data={dataStage2_2_2_3}/>
+				}
+				{activeStage === 5 && resultStage2_2_2 === '2_2_2_4' &&
+					<CustomQuestionForm data={dataStage2_2_2_4}/>
+				}
+				{activeStage === 5 && resultStage2_2_2 === '2_2_2_5' &&
+					<CustomQuestionForm data={dataStage2_2_2_5}/>
+				}
+				{activeStage === 3 && resultStage2 === '2_3' &&
+					<CustomQuestionForm data={dataStage2_3}/>
+				}
+				{activeStage === 4 && resultStage2_3 === '2_3_1' &&
+					<CustomQuestionForm data={dataStage2_3_1}/>
+				}
+				{activeStage === 4 && resultStage2_3 === '2_3_2' &&
+					<CustomQuestionForm data={dataStage2_3_2}/>
+				}
+				{activeStage === 4 && resultStage2_3 === '2_3_3' &&
+					<CustomQuestionForm data={dataStage2_3_3}/>
+				}
+				{activeStage === 4 && resultStage2_3 === '2_3_4' &&
+					<CustomQuestionForm data={dataStage2_3_4}/>
+				}
+				{activeStage === 5 && resultStage2_3_1 === '2_3_1_1' &&
+					<CustomQuestionForm data={dataStage2_3_1_1}/>
+				}
+				{activeStage === 5 && resultStage2_3_1 === '2_3_1_2' &&
+					<CustomQuestionForm data={dataStage2_3_1_2}/>
+				}
+				{activeStage === 5 && resultStage2_3_1 === '2_3_1_3' &&
+					<CustomQuestionForm data={dataStage2_3_1_3}/>
+				}
+				{activeStage === 5 && resultStage2_3_1 === '2_3_1_4' &&
+					<CustomQuestionForm data={dataStage2_3_1_4}/>
+				}
+				{activeStage === 3 && resultStage2 === '2_4' &&
+					<CustomQuestionForm data={dataStage2_4}/>
+				}
+				{activeStage === 4 && resultStage2_4 === '2_4_1' &&
+					<CustomQuestionForm data={dataStage2_4_1}/>
+				}
+				{activeStage === 4 && resultStage2_4 === '2_4_2' &&
+					<CustomQuestionForm data={dataStage2_4_2}/>
+				}
+				{activeStage === 4 && resultStage2_4 === '2_4_3' &&
+					<CustomQuestionForm data={dataStage2_4_3}/>
 				}
 				<div className={cls.actions}>
 					<Button
 						theme={ButtonTheme.PRIMARY}
 						className={cls.submitBtn}
 						onClick={activeStage === lastStage ? onSubmit : handleNextStage}
+						disabled={activeStage !== 1 && filter === ''}
 					>
 						{activeStage === lastStage ? 'Закончить опрос' : 'Далее'}
 					</Button>
