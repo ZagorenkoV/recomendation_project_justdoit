@@ -1,5 +1,7 @@
 import {FC, createContext, ReactNode, useState, useEffect} from "react";
 import {IContextProps} from "./types";
+import {IPopularEvents} from "../mock/popularEvents";
+import {useHttp} from "../hooks/useHttp";
 
 interface Props {
 	children: ReactNode;
@@ -17,6 +19,7 @@ const ContextProvider: FC<Props> = ({children}) => {
 		birthDate: ''
 	})
 	const [filter, setFilter] = useState('')
+	const [popular, setPopular] = useState<IPopularEvents[]>([])
 	const [resultStage2, setResultStage2] = useState<string>()
 	const [resultStage2_1, setResultStage2_1] = useState<string>()
 	const [resultStage2_2, setResultStage2_2] = useState<string>()
@@ -24,6 +27,14 @@ const ContextProvider: FC<Props> = ({children}) => {
 	const [resultStage2_3, setResultStage2_3] = useState<string>()
 	const [resultStage2_3_1, setResultStage2_3_1] = useState<string>()
 	const [resultStage2_4, setResultStage2_4] = useState<string>()
+
+	const {request} = useHttp()
+
+	useEffect(() => {
+		request("https://635f96b6ca0fe3c21a9f8c08.mockapi.io/popular")
+			.then((data: IPopularEvents[]) => setPopular(data))
+			.catch((error) => console.log(error))
+	}, []);
 
 	useEffect(() => {
 		if (resultStage2_2_2 || resultStage2_3_1) {
@@ -34,6 +45,7 @@ const ContextProvider: FC<Props> = ({children}) => {
 	return (
 		<appContext.Provider value={{
 			filter,
+			popular,
 			activeStage,
 			lastStage,
 			userData,
