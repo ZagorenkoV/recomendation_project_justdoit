@@ -31,4 +31,5 @@ export interface IContextProps {
 	setResultStage2_3: (result: string) => void;
 	setResultStage2_3_1: (result: string) => void;
 	setResultStage2_4: (result: string) => void;
+	resetAllStages: () => void;
 }

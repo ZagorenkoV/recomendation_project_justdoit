@@ -7,6 +7,7 @@ interface DataProps {
 	category: string,
 	title: string,
 	description: string
+	address: string
 }
 
 interface CardsProps {
@@ -20,7 +21,8 @@ const Cards: FC<CardsProps> = ({className, data}: CardsProps) => {
 		<div className={classNames(cls.Cards, {}, [className])}>
 			<div className={cls['card-row']}>
 				{data.map((card, i) => (
-					<Card key={i} category={card.category} title={card.title} description={card.description}/>
+					<Card key={i} category={card.category} title={card.title} description={card.description}
+						  address={card.address}/>
 				))}
 			</div>
 		</div>
