@@ -1,5 +1,9 @@
-import {FC, createContext, ReactNode, useState, useEffect} from "react";
+import {FC, createContext, ReactNode, useState, useEffect, useCallback} from "react";
 import {IContextProps} from "./types";
+import {IPopularEvents} from "../mock/popularEvents";
+import {useHttp} from "../hooks/useHttp";
+import {usePosition} from "../hooks/usePosition";
+import axios from "axios";
 
 interface Props {
 	children: ReactNode;
@@ -17,6 +21,7 @@ const ContextProvider: FC<Props> = ({children}) => {
 		birthDate: ''
 	})
 	const [filter, setFilter] = useState('')
+	const [popular, setPopular] = useState<IPopularEvents[]>([])
 	const [resultStage2, setResultStage2] = useState<string>()
 	const [resultStage2_1, setResultStage2_1] = useState<string>()
 	const [resultStage2_2, setResultStage2_2] = useState<string>()
@@ -25,15 +30,43 @@ const ContextProvider: FC<Props> = ({children}) => {
 	const [resultStage2_3_1, setResultStage2_3_1] = useState<string>()
 	const [resultStage2_4, setResultStage2_4] = useState<string>()
 
+	const {request} = useHttp()
+	const {position} = usePosition()
+	
+	useEffect(() => {
+		console.log(`Отправка данных на бэк: ${JSON.stringify(position)}`)
+	}, [position])
+
+	useEffect(() => {
+		request("https://635f96b6ca0fe3c21a9f8c08.mockapi.io/popular")
+			.then((data: IPopularEvents[]) => setPopular(data))
+			.catch((error) => console.log(error))
+	}, []);
+
 	useEffect(() => {
 		if (resultStage2_2_2 || resultStage2_3_1) {
 			setLastStage((prevState) => prevState + 1)
 		}
 	}, [resultStage2_2_2, resultStage2_3_1])
 
+	const resetAllStages = useCallback(() => {
+		setResultStage2('')
+		setResultStage2_1('')
+		setResultStage2_2('')
+		setResultStage2_3('')
+		setResultStage2_4('')
+		setResultStage2_2_2('')
+		setResultStage2_3_1('')
+		setActiveStage(1)
+		setLastStage(4)
+		setFilter('')
+	}, [])
+
 	return (
 		<appContext.Provider value={{
+			resetAllStages,
 			filter,
+			popular,
 			activeStage,
 			lastStage,
 			userData,

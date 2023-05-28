@@ -80,6 +80,7 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 			className={classNames(cls.SurveyModal, {}, [className])}
 			isOpen={isOpen}
 			onClose={onClose}
+			small={true}
 		>
 			<div className={cls['modal-content']}>
 				<Text

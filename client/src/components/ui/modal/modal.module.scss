@@ -34,7 +34,23 @@
   background: white;
   transition: 0.3s transform;
   transform: scale(0.5);
-  width: 35%;
+  min-width: 1000px;
+  max-width: 1000px;
+  z-index: var(--modal-z-index);
+}
+
+.close-cross {
+  cursor: pointer;
+  position: fixed;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 6%;
+  bottom: 0;
+  right: 0;
+  left: 95%;
   z-index: var(--modal-z-index);
 }
 
@@ -50,5 +66,16 @@
 
 .isClosing {
   .content {
+  }
+}
+
+.small {
+  .content {
+	min-width: 600px;
+	max-width: 600px;
+  }
+  
+  .close-cross {
+	left: 90%;
   }
 }

@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from "react";
+import React, {FC, useCallback, useContext, useState} from "react";
 import cls from "./recommended.module.scss";
 import {Text} from "../../ui/text/Text";
 import {classNames} from "../../../lib/classNames";
@@ -6,6 +6,7 @@ import Cards from "../../common/cards/Cards";
 import {Button, ButtonSize, ButtonTheme} from "../../ui/button/Button";
 import {SurveyModal} from "../../common/survey/surveyModal/SurveyModal";
 import {recommendedEvents} from "../../../mock/recommendedEvents";
+import {appContext} from "../../../context/context";
 
 interface PopularProps {
 	className?: string;
@@ -14,6 +15,7 @@ interface PopularProps {
 export const Recommended: FC = ({className}: PopularProps) => {
 
 	const [isOpenModal, setIsOpenModal] = useState(false);
+	const {resetAllStages} = useContext(appContext)
 
 	const onCloseModal = useCallback(() => {
 		setIsOpenModal(false);
@@ -21,6 +23,7 @@ export const Recommended: FC = ({className}: PopularProps) => {
 
 	const onShowModal = useCallback(() => {
 		setIsOpenModal(true);
+		resetAllStages()
 	}, []);
 
 	return (

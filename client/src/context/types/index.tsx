@@ -1,3 +1,5 @@
+import {IPopularEvents} from "../../mock/popularEvents";
+
 interface IUserDataProps {
 	firstName: string,
 	middleName: string,
@@ -7,6 +9,7 @@ interface IUserDataProps {
 
 export interface IContextProps {
 	filter: string;
+	popular: IPopularEvents[];
 	activeStage: number;
 	lastStage: number;
 	userData: IUserDataProps;
@@ -28,4 +31,5 @@ export interface IContextProps {
 	setResultStage2_3: (result: string) => void;
 	setResultStage2_3_1: (result: string) => void;
 	setResultStage2_4: (result: string) => void;
+	resetAllStages: () => void;
 }

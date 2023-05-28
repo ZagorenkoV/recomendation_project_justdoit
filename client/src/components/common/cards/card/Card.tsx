@@ -10,9 +10,10 @@ interface CardProps {
 	category: string;
 	title: string;
 	description: string;
+	address: string;
 }
 
-export const Card: FC<CardProps> = ({className, category, title, description}: CardProps) => {
+export const Card: FC<CardProps> = ({className, category, title, description, address}: CardProps) => {
 
 	const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -58,6 +59,7 @@ export const Card: FC<CardProps> = ({className, category, title, description}: C
 				category={category}
 				title={title}
 				description={description}
+				address={address}
 				isOpen={isOpenModal}
 				onClose={onCloseModal}
 			/>
