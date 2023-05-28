@@ -2,6 +2,7 @@ export interface IRecommendedEvents {
 	category: string;
 	title: string;
 	description: string;
+	address: string
 }
 
 export const recommendedEvents: IRecommendedEvents[] = [

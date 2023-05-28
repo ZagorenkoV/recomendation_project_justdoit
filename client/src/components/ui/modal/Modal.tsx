@@ -10,6 +10,7 @@ interface ModalProps {
 	children?: ReactNode;
 	isOpen?: boolean;
 	onClose?: () => void;
+	small?: boolean;
 	lazy?: boolean;
 }
 
@@ -20,6 +21,7 @@ export const Modal = (props: ModalProps) => {
 		className,
 		children,
 		isOpen,
+		small,
 		onClose,
 		lazy,
 	} = props;
@@ -74,6 +76,7 @@ export const Modal = (props: ModalProps) => {
 	const mods: Record<string, boolean | undefined> = {
 		[cls.opened]: isOpen,
 		[cls.isClosing]: isClosing,
+		[cls.small]: small,
 	};
 
 	if (lazy && !isMounted) {
