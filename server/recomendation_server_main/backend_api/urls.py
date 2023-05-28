@@ -4,14 +4,16 @@ from backend_api import views
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.urlpatterns import format_suffix_patterns
-from backend_api import views
+from ..backend_api import views
 
 
 
-
-urlpatterns = [
-    path(r'users/<int:pk>', views.UsersApi),
-]
+#
+# urlpatterns = [
+#     path(r'api/users/<int:pk>', views.UsersApiView),
+#     path('api/popular/<str:geo>', views.PopularApiView),
+#     # path(r'api/popular/', views.PopularApiView),
+# ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html'])
 

@@ -23,5 +23,6 @@ from backend_api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('users', views.UsersApiView.as_view())
+    re_path('users', views.UsersApiView.as_view()),
+    re_path('popular', views.PopularApiView.as_view()),
 ]
