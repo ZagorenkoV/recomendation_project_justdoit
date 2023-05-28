@@ -31,11 +31,7 @@ const ContextProvider: FC<Props> = ({children}) => {
 	const [resultStage2_4, setResultStage2_4] = useState<string>()
 
 	const {request} = useHttp()
-	const {position} = usePosition()
-	
-	useEffect(() => {
-		console.log(`Отправка данных на бэк: ${JSON.stringify(position)}`)
-	}, [position])
+	// const {position} = usePosition()
 
 	useEffect(() => {
 		request("https://635f96b6ca0fe3c21a9f8c08.mockapi.io/popular")

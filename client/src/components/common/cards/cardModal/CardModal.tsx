@@ -26,20 +26,20 @@ export const CardModal = ({className, category, title, description, address, isO
 	const [latitude, setLatitude] = useState<number>()
 	const [longitude, setLongitude] = useState<number>()
 
-	// useEffect(() => {
-	// 	if (isOpen && address) {
-	// 		axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=18151c0e-e0fb-4f01-bac0-2b19de34e97a&format=json&geocode=${address}`)
-	// 			.then(data => {
-	// 				setPos(data.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos)
-	// 				if (pos !== '') {
-	// 					const coordinates = pos.split(" ");
-	// 					setLatitude(parseFloat(coordinates[0]));
-	// 					setLongitude(parseFloat(coordinates[1]));
-	// 				}
-	// 			})
-	// 	}
-	//
-	// }, [isOpen, pos])
+	useEffect(() => {
+		if (isOpen && address) {
+			axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=18151c0e-e0fb-4f01-bac0-2b19de34e97a&format=json&geocode=${address}`)
+				.then(data => {
+					setPos(data.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos)
+					if (pos !== '') {
+						const coordinates = pos.split(" ");
+						setLatitude(parseFloat(coordinates[0]));
+						setLongitude(parseFloat(coordinates[1]));
+					}
+				})
+		}
+
+	}, [isOpen, pos])
 
 	return (
 		<Modal
