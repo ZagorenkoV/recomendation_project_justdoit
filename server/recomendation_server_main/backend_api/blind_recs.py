@@ -3,7 +3,7 @@ import numpy as np
 from geopy import distance
 
 pd.set_option('display.max_columns', None)
-groups_now = pd.read_csv("groups_now.csv", dtype={"уникальный номер": "int32"})
+groups_now = pd.read_csv("static/groups_now.csv", dtype={"уникальный номер": "int32"})
 def make_blind_recs(user_geo):
     group_list = []
     if not pd.isna(user_geo):
@@ -24,5 +24,3 @@ def make_blind_recs(user_geo):
             group = (int(samples[i]), np.nan)
             group_list.append(group)
         return group_list
-user_geo = np.nan#"55.901869 37.583544"
-print(make_blind_recs(user_geo))
