@@ -38,7 +38,7 @@ export const Card: FC<CardProps> = ({className, category, title, description, ad
 				className={cls['card-title']}
 			/>
 			<Text
-				text={description.length > 150 ? `${description.slice(0, 150)}...` : description}
+				text={description}
 				className={cls['card-description']}
 			/>
 			<div className={cls.actions}>

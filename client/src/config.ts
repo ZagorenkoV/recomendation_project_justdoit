@@ -1,1 +1,0 @@
-export const SERVER_URL = "http://87.242.123.82:8000";

@@ -9,7 +9,7 @@ import {Placemark, YMaps, Map} from "@pbe/react-yandex-maps";
 import {useHttp} from "../../../../hooks/useHttp";
 import axios from "axios";
 
-interface CardModalProps {
+interface LoginModalProps {
 	className?: string;
 	category: string;
 	title: string;
@@ -19,7 +19,7 @@ interface CardModalProps {
 	onClose: () => void;
 }
 
-export const CardModal = ({className, category, title, description, address, isOpen, onClose}: CardModalProps) => {
+export const CardModal = ({className, category, title, description, address, isOpen, onClose}: LoginModalProps) => {
 
 	const {request} = useHttp()
 	const [pos, setPos] = useState('')
