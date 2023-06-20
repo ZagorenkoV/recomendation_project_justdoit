@@ -4,11 +4,11 @@ from xgboost import XGBClassifier
 import time
 from geopy import distance
 
-allgroups = pd.read_csv("groups.csv", dtype={"уникальный номер":"int32"})
-groups_now = pd.read_csv("groups_now.csv", dtype={"уникальный номер": "int32","направление 1":"category",
+allgroups = pd.read_csv("static/groups.csv", dtype={"уникальный номер":"int32"})
+groups_now = pd.read_csv("static/groups_now.csv", dtype={"уникальный номер": "int32","направление 1":"category",
                                                       "направление 2":"category" , "направление 3":"category", "район площадки":"category"})
 def get_dirs_xgb(user_id, n_samples):
-    att = pd.read_csv("att_dirs.csv", dtype={"уникальный номер участника": "int32", "уникальный номер группы": "int32",
+    att = pd.read_csv("static/att_dirs.csv", dtype={"уникальный номер участника": "int32", "уникальный номер группы": "int32",
                                            "уникальный номер занятия": "int32"})
     dirsframe = att[att["уникальный номер участника"].eq(user_id)][["уникальный номер группы", "направление 2", "направление 3"]]
     # print(dirsframe, "все направления пользователя")
@@ -30,13 +30,13 @@ def get_dirs_xgb(user_id, n_samples):
     if not dirsframe.empty:
         try:
             samples = dirsframe.sample(n=n_samples)
-            flag, n_dirs_to_get = 1, 3
+            flag, n_dirs_to_get = 1, 4
         except:
             samples = dirsframe.sample(n=1)
-            flag, n_dirs_to_get = 3, 1
+            flag, n_dirs_to_get = 4, 1
     else:
         samples = groups_now.sample(n=n_samples)
-        flag, n_dirs_to_get = 1, 3
+        flag, n_dirs_to_get = 1, 4
     return samples[["направление 1", "направление 2", "район площадки"]], flag, n_dirs_to_get
 
 def make_recs_dirs(user_geo, user_id):
@@ -58,24 +58,23 @@ def make_recs_dirs(user_geo, user_id):
                                 subsample=0.8,
                                 eval_metric=['merror'],
                                 seed=42)
-    clf.load_model('xgb_groups.json')
-    try_df, flag_usage, n_dirs_to_get = get_dirs_xgb(user_id, 3)
-    print(try_df["направление 2"])
+    clf.load_model('static/xgb_groups.json')
+    try_df, flag_usage, n_dirs_to_get = get_dirs_xgb(user_id, 4)
+    # print(try_df["направление 2"])
     try_df = pd.concat([train_data, try_df], ignore_index=True)
     try_df = try_df.astype({"направление 1":"category", "направление 2":"category", "район площадки":"category"})
 
     pred = clf.predict_proba(try_df[-n_dirs_to_get:])
     # print(time.time() - t0, "sec3")
     group_list = []
+    for i in groups_now["geo"].unique():
+        try:
+            groups_now.loc[groups_now["geo"] == i, "distance"] = distance.distance(user_geo.split(" "), i).km
+        except:
+            continue
     for i in range(len(pred)):
         a = enumerate(pred[i])
         max_v_index = sorted(a,key=lambda x: x[1], reverse=True)[:flag_usage]
-
-        for i in groups_now["geo"].unique():
-            try:
-                groups_now.loc[groups_now["geo"]==i, "distance"] = distance.distance(user_geo.split(" "), i).km
-            except:
-                continue
         for i in range(len(max_v_index)):
             group_dir = d_groups_inference[max_v_index[i][0]]
             # print(group_dir, "directions")

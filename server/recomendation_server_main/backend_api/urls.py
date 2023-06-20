@@ -8,12 +8,12 @@ from ..backend_api import views
 
 
 
-#
-# urlpatterns = [
-#     path(r'api/users/<int:pk>', views.UsersApiView),
-#     path('api/popular/<str:geo>', views.PopularApiView),
-#     # path(r'api/popular/', views.PopularApiView),
-# ]
+
+urlpatterns = [
+    path('api/survey', views.SurveyApiView.as_view()),
+    path('api/popular', views.PopularApiView.as_view()),
+    path('api/date', views.GetDateApiView.as_view()),
+]
 
 # urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html'])
 
