@@ -1,10 +1,12 @@
-import React, {FC, useContext} from "react";
+import React, {FC, useEffect} from "react";
 import cls from "./popular.module.scss";
 import {Text} from "../../ui/text/Text";
 import {classNames} from "../../../lib/classNames";
 import Cards from "../../common/cards/Cards";
-import {appContext} from "../../../context/context";
-import {popularEvents} from "../../../mock/popularEvents";
+import {useAppDispatch, useAppSelector} from "../../../redux/hooks";
+import Spinner from "../../ui/spinner/Spinner";
+import FetchError from "../../ui/error/fetch-error/FetchError";
+import {fetchPopular} from "../../../redux/slices/data/popularSlice";
 
 interface PopularProps {
 	className?: string;
@@ -12,12 +14,24 @@ interface PopularProps {
 
 export const Popular: FC = ({className}: PopularProps) => {
 
-	const {popular} = useContext(appContext)
+	const {popularData, popularLoading, popularError} = useAppSelector(state => state.popular);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(fetchPopular())
+	}, [dispatch])
 
 	return (
 		<div className={classNames(cls.Popular, {}, [className])}>
 			<Text title={'Популярные занятия'}/>
-			<Cards data={popularEvents}/>
+
+			{popularLoading && <Spinner/>}
+
+			{popularError && <FetchError error={popularError}/>}
+
+			{popularData.length > 0 &&
+				<Cards data={popularData}/>
+			}
 		</div>
 	);
 };
