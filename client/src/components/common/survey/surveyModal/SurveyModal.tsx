@@ -29,6 +29,8 @@ import {
 	dataStage2_4_1,
 	dataStage2_4_2, dataStage2_4_3
 } from "../../../../mock/questions";
+import {useAppDispatch} from "../../../../redux/hooks";
+import {fetchDate, fetchSurvey} from "../../../../redux/slices/data/recommendedSlice";
 
 interface SurveyModalProps {
 	className?: string;
@@ -52,10 +54,12 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 		resultStage2_4,
 	} = useContext(appContext)
 
+	const dispatch = useAppDispatch();
 
 	const handleNextStage = () => {
 		if (activeStage === 1 && userData.birthDate !== '') {
-			console.log(`Отправка данных на бэк: ${[JSON.stringify(userData)]}`)
+			dispatch(fetchDate(userData.birthDate))
+			// console.log(`Отправка данных на бэк: ${[JSON.stringify(userData)]}`)
 		}
 
 		if (activeStage < lastStage) {
@@ -71,7 +75,8 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 		const finalResult = {
 			result: filter
 		}
-		console.log(`Отправка данных на бэк: ${JSON.stringify(finalResult)}`)
+		dispatch(fetchSurvey(finalResult.result))
+		// console.log(`Отправка данных на бэк: ${JSON.stringify(finalResult)}`)
 		onClose();
 	}
 
