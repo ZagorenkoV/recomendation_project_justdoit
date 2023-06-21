@@ -3,8 +3,8 @@
 	font: var(--font-xl);
 	font-weight: bold;
 	color: var(--secondary-color);
-	margin-top: 50px;
-	margin-bottom: 30px;
+	padding-top: 50px;
+	padding-bottom: 25px;
   }
   
   .text {
@@ -13,7 +13,7 @@
   }
 }
 
-.titles {  
+.titles {
   .text {
 	font: var(--font-l);
 	font-weight: 500;
