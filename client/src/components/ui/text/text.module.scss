@@ -3,7 +3,6 @@
 	font: var(--font-xl);
 	font-weight: bold;
 	color: var(--secondary-color);
-	padding-top: 50px;
 	padding-bottom: 25px;
   }
   
@@ -34,6 +33,8 @@
   
   .text {
 	color: var(--red-dark);
+	font: var(--font-m);
+	font-weight: 500;
   }
 }
 

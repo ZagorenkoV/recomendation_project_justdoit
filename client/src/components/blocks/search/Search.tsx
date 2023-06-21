@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import cls from "./search.module.scss"
 import {Input} from "../../ui/input/Input";
 import {Button, ButtonTheme} from "../../ui/button/Button";
-import {Text} from "../../ui/text/Text";
 import {classNames} from "../../../lib/classNames";
 
 interface SearchProps {

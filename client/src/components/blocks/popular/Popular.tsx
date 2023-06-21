@@ -1,6 +1,5 @@
 import React, {FC, useEffect} from "react";
 import cls from "./popular.module.scss";
-import {Text} from "../../ui/text/Text";
 import {classNames} from "../../../lib/classNames";
 import Cards from "../../common/cards/Cards";
 import {useAppDispatch, useAppSelector} from "../../../redux/hooks";
@@ -23,7 +22,7 @@ export const Popular: FC = ({className}: PopularProps) => {
 
 	return (
 		<div className={classNames(cls.Popular, {}, [className])}>
-			
+
 			{popularLoading && <Spinner/>}
 
 			{popularError && <FetchError error={popularError}/>}
