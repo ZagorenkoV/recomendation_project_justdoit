@@ -46,7 +46,6 @@ export const Recommended: FC = ({className}: PopularProps) => {
 	return (
 		<div className={classNames(cls.Recommended, {}, [className])}>
 			<div>
-				<Text title={'Подобрать индивидуальные занятия'}/>
 				<Text text={'Пройдите наш опрос и узнайте, какие направления подходят именно Вам'}/>
 				<Button
 					theme={ButtonTheme.PRIMARY}

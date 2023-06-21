@@ -23,8 +23,7 @@ export const Popular: FC = ({className}: PopularProps) => {
 
 	return (
 		<div className={classNames(cls.Popular, {}, [className])}>
-			<Text title={'Популярные занятия'}/>
-
+			
 			{popularLoading && <Spinner/>}
 
 			{popularError && <FetchError error={popularError}/>}
