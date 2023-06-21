@@ -65,13 +65,13 @@ export const Recommended: FC = ({className}: PopularProps) => {
 
 			{surveyData.length > 0 &&
 				<>
-					<Text title={'Рекомендованные занятия'}/>
+					<Text title={'Рекомендованные занятия'} className={cls['recommended-title']}/>
 					<Cards data={surveyData}/>
 				</>
 			}
 
 			{dateData.length > 0 &&
-				<div style={{marginTop: '50px'}}>
+				<div style={{marginTop: '20px'}}>
 					<Cards data={dateData}/>
 				</div>
 			}

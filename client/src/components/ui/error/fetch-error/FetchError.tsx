@@ -1,5 +1,6 @@
-import classes from "./fetchError.module.scss";
-import {Text} from "../../text/Text";
+import cls from "./fetchError.module.scss";
+import {Text, TextTheme} from "../../text/Text";
+import {classNames} from "../../../../lib/classNames";
 
 type FetchErrorProps = {
 	error: string
@@ -7,8 +8,8 @@ type FetchErrorProps = {
 
 const FetchError = ({error}: FetchErrorProps) => {
 	return (
-		<div className={classes.container}>
-			<Text className={classes.message} title={error}/>
+		<div className={classNames(cls.FetchError, {}, [])}>
+			<Text className={cls.message} text={error} theme={TextTheme.ERROR}/>
 		</div>
 
 	);

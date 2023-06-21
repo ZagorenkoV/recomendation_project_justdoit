@@ -3,9 +3,10 @@
   min-height: 400px;
   max-width: 350px;
   border: 1px lightgray solid;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   transition: all 500ms;
+  background: #f3f5f7;
   
   &:hover {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
