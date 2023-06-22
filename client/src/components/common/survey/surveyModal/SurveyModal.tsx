@@ -193,7 +193,7 @@ export const SurveyModal = ({className, isOpen, onClose}: SurveyModalProps) => {
 						onClick={activeStage === lastStage ? onSubmit : handleNextStage}
 						disabled={activeStage !== 1 && filter === ''}
 					>
-						{activeStage === lastStage ? 'Закончить опрос' : 'Далее'}
+						{activeStage === lastStage ? 'Закончить' : 'Далее'}
 					</Button>
 					{activeStage !== 1 &&
 						<Button

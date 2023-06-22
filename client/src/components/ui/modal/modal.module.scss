@@ -7,10 +7,12 @@
   opacity: 0;
   pointer-events: none;
   z-index: 100;
+  overflow: scroll;
   color: var(--primary-color);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
+  
 }
 
 .overlay {
@@ -34,9 +36,13 @@
   background: white;
   transition: 0.3s transform;
   transform: scale(0.5);
-  min-width: 1000px;
-  max-width: 1000px;
+  width: 1000px;
   z-index: var(--modal-z-index);
+  @media (max-width: 1026px) {
+	width: 98%;
+	height: 95vh;
+	overflow-y: scroll;
+  }
 }
 
 .close-cross {
@@ -47,11 +53,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 6%;
+  top: 4%;
   bottom: 0;
   right: 0;
   left: 95%;
   z-index: var(--modal-z-index);
+  @media (max-width: 900px) {
+	left: 90%;
+  }
+  @media (max-width: 650px) {
+	left: 90%;
+  }
+  @media (max-width: 375px) {
+	left: 90%;
+	height: 15px;
+	width: 15px;
+  }
 }
 
 .opened {
@@ -71,11 +88,18 @@
 
 .small {
   .content {
-	min-width: 600px;
-	max-width: 600px;
+	width: 600px;
+	height: auto;
+	@media (max-width: 625px) {
+	  width: 98%;
+	}
   }
   
   .close-cross {
 	left: 90%;
+	@media (max-width: 375px) {
+	  left: 87%;
+	  top: 5%;
+	}
   }
 }
