@@ -70,7 +70,7 @@ export const Recommended: FC = ({className}: PopularProps) => {
 				</>
 			}
 
-			{dateData.length > 0 &&
+			{(dateData.length > 0 && surveyData.length > 0) &&
 				<div style={{marginTop: '20px'}}>
 					<Cards data={dateData}/>
 				</div>

@@ -4,6 +4,9 @@
   .recommend-btn {
 	margin-top: 20px;
 	width: 600px;
+	@media (max-width: 1600px) {
+	  width: calc(280px + (600 - 280) * ((100vw - 320px) / (1600 - 320)));
+	}
   }
   
   .recommended-title {

@@ -1,9 +1,19 @@
 .Block {
   .title {
 	padding: 25px 75px 0 75px;
+	@media (max-width: 1600px) {
+	  padding-top: calc(10px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
+	  padding-left: calc(10px + (75 - 10) * ((100vw - 320px) / (1600 - 320)));
+	  padding-right: calc(10px + (75 - 10) * ((100vw - 320px) / (1600 - 320)));
+	}
   }
   
   .content {
 	padding: 0 75px 25px 75px;
+	@media (max-width: 1600px) {
+	  padding-bottom: calc(10px + (25 - 10) * ((100vw - 320px) / (1600 - 320)));
+	  padding-left: calc(10px + (75 - 10) * ((100vw - 320px) / (1600 - 320)));
+	  padding-right: calc(10px + (75 - 10) * ((100vw - 320px) / (1600 - 320)));
+	}
   }
 }

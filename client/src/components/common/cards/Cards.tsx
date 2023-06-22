@@ -13,7 +13,7 @@ const Cards: FC<CardsProps> = ({className, data}: CardsProps) => {
 
 	return (
 		<div className={classNames(cls.Cards, {}, [className])}>
-			<div className={cls['card-row']}>
+			<div className={cls['cards-row']}>
 				{data.map((card, i) => (
 					<Card key={i} category={card.level_1} title={card.level_3} description={card.Description}
 						  address={card.Adress}/>

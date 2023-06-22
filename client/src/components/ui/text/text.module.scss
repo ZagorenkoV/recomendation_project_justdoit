@@ -1,6 +1,6 @@
 .primary {
   .title {
-	font: var(--font-xl);
+	font: var(--font-xxl);
 	font-weight: bold;
 	color: var(--secondary-color);
 	padding-bottom: 25px;
@@ -22,6 +22,7 @@
 
 .secondary {
   .text {
+	font: var(--font-m);
 	color: #8D8D8D;
   }
 }

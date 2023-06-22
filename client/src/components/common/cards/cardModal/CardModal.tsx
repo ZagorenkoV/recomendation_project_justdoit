@@ -62,8 +62,8 @@ export const CardModal = ({className, category, title, description, address, isO
 					/>
 					<div className={cls['card-tags']}>
 						<Tag theme={TagTheme.ONLINE} text={'Онлайн'}/>
-						<Tag text={'Группа занимается'}/>
-						<Tag text={'Запись продолжается'}/>
+						{/*<Tag text={'Группа занимается'}/>*/}
+						{/*<Tag text={'Запись продолжается'}/>*/}
 					</div>
 					<Text
 						text={description}
@@ -73,11 +73,11 @@ export const CardModal = ({className, category, title, description, address, isO
 						text={`Адрес: ${address}`}
 						className={cls['card-address']}
 					/>
-					<div className={cls.map}>
+					<div>
 						{latitude && longitude &&
 							<YMaps query={{apikey: '18151c0e-e0fb-4f01-bac0-2b19de34e97a'}}>
 								<Map
-									width={500}
+									className={cls.map}
 									defaultState={{
 										center: [longitude, latitude],
 										zoom: 15,

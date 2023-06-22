@@ -1,5 +1,9 @@
 @import "reset";
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: Golos Text, "Times New Roman", serif;
   background: #ced0d2;
