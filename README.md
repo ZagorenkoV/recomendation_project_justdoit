@@ -41,6 +41,6 @@ npm run start
 python3 manage.py runserver 127.0.0.1:8000
 ```
 
-### Ссылка на видеодеомнстрацию работы проекта
+### Ссылка на видеодемонстрацию работы проекта
 https://youtu.be/F6FtAnDkDHU
 
