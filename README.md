@@ -39,7 +39,8 @@ npm run start
 
 ```sh
 python3 manage.py runserver 127.0.0.1:8000
+```
 
 ### Ссылка на видео работы проекта
 https://youtu.be/F6FtAnDkDHU
-```
+
